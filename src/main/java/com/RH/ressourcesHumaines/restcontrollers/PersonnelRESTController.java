@@ -3,6 +3,7 @@ package com.RH.ressourcesHumaines.restcontrollers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,14 +25,15 @@ public class PersonnelRESTController {
 	@Autowired
 	PersonnelService personnelService;
 	
-	@RequestMapping(method=RequestMethod.GET)
+	
+	@RequestMapping(path="all", method=RequestMethod.GET)
 	public List<Personnel> getAllPersonnels()
 	{
 	return personnelService.getAllPersonnels();
 	}
 	
 
-	@RequestMapping(value="/{id}",method = RequestMethod.GET)
+	@RequestMapping(value="/getbyid/{id}",method = RequestMethod.GET)
 	public Personnel getPersonnelById(@PathVariable("id") Long id) {
 	return personnelService.getPersonnel(id);
 	 }
@@ -39,6 +41,7 @@ public class PersonnelRESTController {
 	
 	
 	@RequestMapping(value="/addP",method = RequestMethod.POST)
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	public Personnel createPersonnel(@RequestBody Personnel personnel) {
 	return personnelService.savePersonnel(personnel);
 	}
@@ -46,14 +49,16 @@ public class PersonnelRESTController {
 	
 	
 	
-	@RequestMapping(method = RequestMethod.PUT)
+	@RequestMapping(value="/updatep" , method = RequestMethod.PUT)
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	public Personnel updatePersonnel(@RequestBody Personnel personnel) {
 	return personnelService.updatePersonnel(personnel);
 	}
 	
 
-
-	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
+	
+	@RequestMapping(value="/delp/{id}",method = RequestMethod.DELETE)
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	public void deletePersonnel(@PathVariable("id") Long id)
 	{
 		personnelService.deletePersonnelById(id);

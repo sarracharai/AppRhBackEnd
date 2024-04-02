@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/assiduite")
 @CrossOrigin("*")
 public class AssiduiteRESTController {
 	
@@ -26,12 +26,12 @@ public class AssiduiteRESTController {
 	    return personnelService.getAssiduite(id);
 	  }
 
-	@RequestMapping(path="addass",method = RequestMethod.POST)
+	@RequestMapping(path="/addass",method = RequestMethod.POST)
 	public Assiduite createAssiduite(@RequestBody Assiduite assiduite) {
 	    return personnelService.saveAssiduite(assiduite);
 	}
 	
-	@RequestMapping(path="updateass",method = RequestMethod.PUT)
+	@RequestMapping(path="/updateass",method = RequestMethod.PUT)
 	public Assiduite updateAssiduite(@RequestBody Assiduite assiduite) {
 	    return personnelService.updateAssiduite(assiduite);
 	}

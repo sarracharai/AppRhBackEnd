@@ -6,6 +6,7 @@ import com.RH.ressourcesHumaines.entities.Conge;
 import com.RH.ressourcesHumaines.entities.Departement;
 import com.RH.ressourcesHumaines.entities.Personnel;
 import com.RH.ressourcesHumaines.entities.Pret;
+import com.RH.ressourcesHumaines.entities.Absence;
 import com.RH.ressourcesHumaines.entities.Assiduite;
 import com.RH.ressourcesHumaines.entities.Contrat;
 import com.RH.ressourcesHumaines.entities.DocAdministratifs;
@@ -39,8 +40,14 @@ public interface PersonnelService {
 	Pret getPret(Long id);
 	List<Pret>getAllPrets();
 	
+	
+	List<Absence> getAllAbsences();
+	Absence getAbsence(Long idAbs);
+	Absence saveAbsence(Absence ab);
+	Absence updateAbsence(Absence ab);
+	void deleteAbsenceById(Long idAbs);
+	
 	List<Assiduite> getAllAssiduites();
-	List<Assiduite>findBynbHeures(double nbHeures);
 	Assiduite getAssiduite(Long idAssiduite);
 	Assiduite saveAssiduite(Assiduite a);
 	

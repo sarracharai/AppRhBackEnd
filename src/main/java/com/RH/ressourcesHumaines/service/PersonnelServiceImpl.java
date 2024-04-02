@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.RH.ressourcesHumaines.entities.Absence;
 import com.RH.ressourcesHumaines.entities.Assiduite;
 import com.RH.ressourcesHumaines.entities.Conge;
 import com.RH.ressourcesHumaines.entities.Contrat;
@@ -12,6 +13,7 @@ import com.RH.ressourcesHumaines.entities.Departement;
 import com.RH.ressourcesHumaines.entities.DocAdministratifs;
 import com.RH.ressourcesHumaines.entities.Personnel;
 import com.RH.ressourcesHumaines.entities.Pret;
+import com.RH.ressourcesHumaines.repos.AbsenceRepository;
 import com.RH.ressourcesHumaines.repos.AssiduiteRepository;
 import com.RH.ressourcesHumaines.repos.CongeRepository;
 import com.RH.ressourcesHumaines.repos.ContratRepository;
@@ -41,8 +43,13 @@ public class PersonnelServiceImpl implements PersonnelService{
 	 
 	 @Autowired
 	 ContratRepository contratRepository;
+	 
+	 @Autowired
+	 private AbsenceRepository absenceRepository;
+	 
 	
 
+	 
 	@Override
 	public Personnel savePersonnel(Personnel p) {
 		return personnelRepository.save(p);
@@ -177,10 +184,7 @@ public class PersonnelServiceImpl implements PersonnelService{
 	public List<Assiduite> getAllAssiduites() {
 		return assiduiteRepository.findAll();
 	}
-	@Override
-	public List<Assiduite> findBynbHeures(double nbHeures) {
-		return assiduiteRepository.findBynbHeures(nbHeures);
-	}
+	
 	@Override
 	public Assiduite getAssiduite(Long idAssiduite) {
 		return assiduiteRepository.findById(idAssiduite).get();
@@ -271,7 +275,30 @@ public class PersonnelServiceImpl implements PersonnelService{
    }
 
 	
- 
-	
+   
+///////////////////////////////////////////////////
+   
+   @Override
+	public List<Absence> getAllAbsences() {
+		return absenceRepository.findAll();
+	}
+	@Override
+	public Absence getAbsence(Long idAbs) {
+		return absenceRepository.findById(idAbs).get();
+	}
+	@Override
+	public Absence saveAbsence(Absence ab) {
+		return absenceRepository.save(ab);
+	}
+	@Override
+	public Absence updateAbsence(Absence ab) {
+		return absenceRepository.save(ab);
+	}
+
+	@Override
+	public void deleteAbsenceById(Long idAbs) {
+		absenceRepository.deleteById(idAbs);
+	}
+   
 	
 }

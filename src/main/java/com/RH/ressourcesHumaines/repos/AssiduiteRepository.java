@@ -11,8 +11,6 @@ import com.RH.ressourcesHumaines.entities.Assiduite;
 
 @RepositoryRestResource(path = "rest")
 public interface AssiduiteRepository extends JpaRepository<Assiduite, Long> {
-	List<Assiduite> findBynbHeures(double nbHeures);
-    //List<Assiduite> findByAbsence(Absence absence);
-   // List<Assiduite>findByAbsenceIdAbs(Long id);
+	
    
 }

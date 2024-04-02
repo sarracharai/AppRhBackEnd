@@ -20,54 +20,36 @@ public class Assiduite {
 	  private Long idAssiduite;
 	  private double heuresSupp;
 	  private double nbHeures;
+	  private double totalAbsences;
 	 
 	   
-	  
-	   @OneToMany(mappedBy = "assiduite")
 	   @JsonIgnore
+	   @OneToMany(mappedBy = "assiduite")
 	   private List<Absence> absences; 
+	   
+	   
 	  
+	   public double getTotalAbsences() {
+		    double totalAbsences = 0.0;
+		    if (absences != null) { // Vérifier si absences est non nul pour éviter une NullPointerException
+		        for (Absence absence : absences) {
+		            if (absence.getAssiduite() != null && absence.getAssiduite().getIdAssiduite().equals(this.idAssiduite)) {
+		                Double heuresAbs = absence.getHeuresAbs(); // Utiliser Double au lieu de String
+		                if (heuresAbs != null) { // Vérifier si heuresAbs est non nul
+		                    totalAbsences += heuresAbs; // Ajouter la valeur directement
+		                }
+		            }
+		        }
+		    }
+		    return totalAbsences;
+		}
 	   
 	   
 	  public Assiduite() {
 	        super() ;
 	    }
 
-	    public Assiduite(double heuresSupp, double nbHeures) {
-	        this.heuresSupp = heuresSupp;
-	        this.nbHeures = nbHeures;
-	    }
-
-		public Long getId() {
-					return idAssiduite;
-				}
-		
-				public void setId(Long id) {
-					this.idAssiduite = id;
-				}
-		
-				public Double getHeuresSupp() {
-					return heuresSupp;
-				}
-		
-				public void setHeuresSupp(double heuresSupp) {
-					this.heuresSupp = heuresSupp;
-				}
-		
-				public double getNbHeures() {
-					return nbHeures;
-				}
-		
-				public void setNbHeures(double nbHeures) {
-					this.nbHeures = nbHeures;
-				}
-		
-				@Override
-				public String toString() {
-					return "Assiduite [id=" + idAssiduite + ", heuresSupp=" + heuresSupp + ", nbHeures=" + nbHeures + "]";
-				}
-	    
-
+	   
 		
 
 }
