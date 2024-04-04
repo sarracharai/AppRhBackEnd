@@ -70,6 +70,9 @@ public interface PersonnelService {
 	 Contrat updateContrat(Contrat c);
 	 void deleteContrat(Contrat c);
 	 void deleteContratById(Long id);
+	 
+	Departement updateDepartement(Departement departement);
+	void deleteDepartementById(Long id);
 	
 	
 	

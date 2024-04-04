@@ -35,7 +35,7 @@ public class AbsenceRESTController {
 	 public Absence getAbsenceById(@PathVariable("id") Long id) {
 	    return personnelService.getAbsence(id);
 	  }
-    @RequestMapping(path="/value",method = RequestMethod.POST)
+    @RequestMapping(path="/addab",method = RequestMethod.POST)
 	public Absence createAbsence(@RequestBody Absence absence) {
 	    return personnelService.saveAbsence(absence);
 	}    

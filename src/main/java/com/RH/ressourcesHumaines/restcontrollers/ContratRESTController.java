@@ -27,7 +27,7 @@ public class ContratRESTController {
 	        return personnelService.getAllContrats();
 	    }
 	    
-	    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	    @RequestMapping(value = "/getbyid/{id}", method = RequestMethod.GET)
 	    public Contrat getContratById(@PathVariable("id") Long id) {
 	        return personnelService.getContratById(id);
 	    }

@@ -26,7 +26,7 @@ public class CongeRESTController {
     }
     
     
-    @RequestMapping(value="/{id}", method = RequestMethod.GET)
+    @RequestMapping(value="/getbyid/{id}", method = RequestMethod.GET)
     public Conge getCongeById(@PathVariable("id") Long id) {
         return personnelService.getConge(id);
     }
@@ -41,7 +41,7 @@ public class CongeRESTController {
         return personnelService.updateConge(conge);
     }
     
-    @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value="/delConge/{id}", method = RequestMethod.DELETE)
     public void deleteConge(@PathVariable("id") Long id) {
         personnelService.deleteCongeById(id);
     }

@@ -17,6 +17,7 @@ import com.RH.ressourcesHumaines.repos.AbsenceRepository;
 import com.RH.ressourcesHumaines.repos.AssiduiteRepository;
 import com.RH.ressourcesHumaines.repos.CongeRepository;
 import com.RH.ressourcesHumaines.repos.ContratRepository;
+import com.RH.ressourcesHumaines.repos.DepartementRepository;
 import com.RH.ressourcesHumaines.repos.DocAdministratifsRepository;
 import com.RH.ressourcesHumaines.repos.PersonnelRepository;
 import com.RH.ressourcesHumaines.repos.PretRepository;
@@ -28,6 +29,9 @@ public class PersonnelServiceImpl implements PersonnelService{
 	
 	@Autowired
 	PersonnelRepository personnelRepository;
+	
+	@Autowired
+	DepartementRepository departementRepository;
 	
 	@Autowired
 	CongeRepository congeRepository;
@@ -298,6 +302,17 @@ public class PersonnelServiceImpl implements PersonnelService{
 	@Override
 	public void deleteAbsenceById(Long idAbs) {
 		absenceRepository.deleteById(idAbs);
+	}
+
+	@Override
+	public Departement updateDepartement(Departement departement) {
+		return departementRepository.save(departement);
+	}
+
+	@Override
+	public void deleteDepartementById(Long id) {
+		departementRepository.deleteById(id);
+		
 	}
    
 	
