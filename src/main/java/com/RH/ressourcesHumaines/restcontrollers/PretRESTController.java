@@ -50,7 +50,7 @@ public class PretRESTController {
 	
 
 
-	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
+	@RequestMapping(value="/delete/{id}",method = RequestMethod.DELETE)
 	public void deletePret(@PathVariable("id") Long id)
 	{
 		personnelService.deletePretById(id);

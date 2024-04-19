@@ -61,62 +61,6 @@ public class Personnel {
 		this.adresse = adresse;
 		this.fonction = fonction;
 	}
-	public Long getIdPersonnel() {
-		return idPersonnel;
-	}
-	public void setIdPersonnel(Long idPersonnel) {
-		this.idPersonnel = idPersonnel;
-	}
-	public String getNomPersonnel() {
-		return nomPersonnel;
-	}
-	public void setNomPersonnel(String nomPersonnel) {
-		this.nomPersonnel = nomPersonnel;
-	}
-	public String getPrenomPersonnel() {
-		return prenomPersonnel;
-	}
-	public void setPrenomPersonnel(String prenomPersonnel) {
-		this.prenomPersonnel = prenomPersonnel;
-	}
-	public Date getDateNaissance() {
-		return dateNaissance;
-	}
-	public void setDateNaissance(Date dateNaissance) {
-		this.dateNaissance = dateNaissance;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public Integer getNumTelephone() {
-		return numTelephone;
-	}
-	public void setNumTelephone(Integer numTelephone) {
-		this.numTelephone = numTelephone;
-	}
-	public String getAdresse() {
-		return adresse;
-	}
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-	public String getFonction() {
-		return fonction;
-	}
-	public void setFonction(String fonction) {
-		this.fonction = fonction;
-	}
-	
-	
-	@Override
-	public String toString() {
-		return "Personnel [idPersonnel=" + idPersonnel + ", nomPersonnel=" + nomPersonnel + ", PrenomPersonnel="
-				+ prenomPersonnel + ", dateNaissance=" + dateNaissance + ", email=" + email + ", numTelephone="
-				+ numTelephone + ", adresse=" + adresse + ", fonction=" + fonction + "]";
-	}
 	
 	
 	
